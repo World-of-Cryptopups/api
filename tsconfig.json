@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "outDir": "./functions",
+    "isolatedModules": true,
+    "module": "commonjs",
+    "target": "es2020",
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", ".netlify", "functions"]
+}
