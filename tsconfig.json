@@ -1,12 +1,15 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
-    "outDir": "./functions",
+    "outDir": "output",
     "isolatedModules": true,
     "module": "commonjs",
     "target": "es2020",
     "skipLibCheck": true
   },
+  "watchOptions": {
+    "excludeDirectories": [".netlify", "functions", ".vscode", "node_modules"]
+  },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", ".netlify", "functions"]
+  "exclude": ["node_modules", ".netlify", "output"]
 }

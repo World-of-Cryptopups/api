@@ -2,7 +2,10 @@
 node_modules
 
 # build output
-functions
+output
 
 # netlify dev output
 .netlify
+
+# .env
+.env*
