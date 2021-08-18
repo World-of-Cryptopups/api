@@ -45,21 +45,23 @@ const handler: Handler = async (event, context) => {
   console.log(new Date().getTime() - t);
 
   // calculate all
-  const pupskinsDps = dpsCalculator(r.pupskins, wallet);
-  const pupcardsDps = dpsCalculator(r.pupcards, wallet);
-  const pupitemsDpsRaw = dpsCalculator(r.pupitems, wallet);
-  const pupitemsDpsReal = dpsItemsCalculator(r.pupskins, r.pupitems, wallet);
+  const y = Promise.all([
+    dpsCalculator(r.pupskins, wallet),
+    dpsCalculator(r.pupcards, wallet),
+    dpsCalculator(r.pupitems, wallet),
+    dpsItemsCalculator(r.pupskins, r.pupitems, wallet),
+  ]);
 
   return {
     statusCode: 200,
     body: JSON.stringify({
       wallet: wallet,
       dps: {
-        pupskins: pupskinsDps,
-        pupcards: pupcardsDps,
+        pupskins: y[0],
+        pupcards: y[1],
         pupitems: {
-          raw: pupitemsDpsRaw,
-          real: pupitemsDpsReal,
+          raw: y[2],
+          real: y[3],
         },
       },
     }),
