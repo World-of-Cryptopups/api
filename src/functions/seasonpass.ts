@@ -21,7 +21,7 @@ const handler: Handler = async (event, context) => {
   }
 
   const r: ApiResponse | null = await fetch(
-    process.env.BASE_API + "seasonpass/one"
+    process.env.BASE_API + `seasonpass/one?wallet=${wallet}`
   )
     .then((d) => d.json())
     .catch((e) => {
