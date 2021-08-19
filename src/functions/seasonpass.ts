@@ -54,6 +54,7 @@ const handler: Handler = async (event, context) => {
     statusCode: 200,
     body: JSON.stringify({
       wallet: wallet,
+      season: "one",
       dps: {
         pupskins: pupskinsDps,
         pupcards: pupcardsDps,
