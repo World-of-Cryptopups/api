@@ -6,9 +6,7 @@ const dpsCalculator = (data: Datum[], owner: string): number => {
   for (let index = 0; index < data.length; index++) {
     const element = data[index];
 
-    if (element.owner === owner) {
-      dps += Number(element.data.DPS);
-    }
+    dps += Number(element.data.DPS);
   }
 
   return dps;
@@ -38,9 +36,7 @@ const dpsItemsCalculator = (
         _name = "Mecha";
       }
 
-      return (
-        _name === element.data["Item Owner"]?.trim() && owner === element.owner
-      );
+      return _name === element.data["Item Owner"]?.trim();
     })[0];
     if (exists) {
       dps += Number(element.data.DPS);
