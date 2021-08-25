@@ -9,6 +9,7 @@ type CalcBody = {
   id: string;
   username: string;
   avatar: string;
+  tag: string;
 };
 
 type GetDataProps = {
@@ -30,7 +31,7 @@ const handler: Handler = async (event, context) => {
   }
 
   // get post body
-  const { id, username, avatar }: CalcBody = JSON.parse(event.body);
+  const { id, username, avatar, tag }: CalcBody = JSON.parse(event.body);
 
   const data: GetDataProps = await fetch(
     process.env.BASE_API + `fetchall/${wallet}`
@@ -63,6 +64,7 @@ const handler: Handler = async (event, context) => {
       id,
       username,
       avatar,
+      tag,
     },
     dps: {
       pupskins: pupskinsDps,

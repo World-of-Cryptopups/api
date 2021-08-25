@@ -5,6 +5,7 @@ export type UserDataDPS = {
     id: string;
     username: string;
     avatar: string;
+    tag: string;
   };
   dps?: {
     pupskins: number;
